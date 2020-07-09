@@ -1,0 +1,7 @@
+/// Helper to size an element
+/// @param {Length} $width
+/// @param {Length} $height
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}

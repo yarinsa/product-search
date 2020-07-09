@@ -1,0 +1,49 @@
+<div
+  class="result-list-item"
+  (click)="onClick()"
+  [ngStyle]="makeBackground(result.imageUrl)"
+>
+  <div class="result-list-item-overlay" [class.active]="isActive"></div>
+
+  <div class="cloud-container">
+    <!-- Step 1: Cloud with dropping arrow -->
+    <svg-icon
+      class="cloud-one cloud-img"
+      src="../../assets/cloud-arrow-icon.svg"
+      [class.active]="isActive"
+    ></svg-icon>
+
+    <!-- Step 2: -->
+    <svg-icon
+      class="cloud-two cloud-img"
+      src="../../assets/cloud-arrow-masked.svg"
+      [class.active]="isActive"
+    ></svg-icon>
+
+    <svg-icon
+      class="cloud-three cloud-img check-scale"
+      src="../../assets/cloud-check-icon.svg"
+      [class.active]="isActive"
+    ></svg-icon>
+
+    <span class="cloud arrow-only-container" [class.active]="isActive">
+      <svg-icon
+        class="cloud arrow-only"
+        [class.active]="isActive"
+        src="../../assets/arrow-icon.svg"
+      ></svg-icon>
+    </span>
+  </div>
+
+  <div class="result-list-item-content">
+    <h3 class="result-list-item-title">{{ result.title }}</h3>
+
+    <div class="result-list-item-tag-list">
+      <span
+        *ngFor="let tag of result.tags"
+        class="result-list-item-tag-list-item"
+        >#{{ tag }}</span
+      >
+    </div>
+  </div>
+</div>

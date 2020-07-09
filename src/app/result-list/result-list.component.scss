@@ -1,0 +1,80 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+@import "../../styles/functions.scss";
+
+//Variables for this component
+$item-size: 150px;
+
+:host {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  > * {
+    margin-bottom: 20px;
+  }
+}
+:host(.active) {
+  .title {
+    opacity: 1;
+  }
+}
+
+.title {
+  font-weight: 500;
+  text-transform: capitalize;
+  color: $gray;
+  font-size: rem(16px);
+  opacity: 0;
+  transition: opacity 0.3s;
+  align-self: baseline;
+}
+
+.result-list {
+  &-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 328px;
+    overflow: hidden;
+  }
+  &-item {
+    margin-right: 24px;
+    margin-bottom: 28px;
+    &:nth-child(5n + 5) {
+      margin-right: 0;
+    }
+  }
+}
+
+.refresh {
+  &-button {
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(28, 26, 26, 0.2);
+    border: solid 1px #c0cad8;
+    color: #79818f;
+    padding: rem(8px);
+    background-color: #eceff3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: rem(12px);
+    line-height: 0;
+    font-family: Roboto;
+    font-weight: 500;
+    &:active {
+      background-color: #edf0f3;
+      box-shadow: 0 1px 3px 0 rgba(28, 26, 26, 0.2);
+    }
+    &:hover {
+      background-color: #edf0f3;
+    }
+  }
+
+  &-icon {
+    @include size(10px);
+    margin-right: 8px;
+    svg path {
+      fill: currentColor;
+    }
+  }
+}

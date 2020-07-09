@@ -1,0 +1,51 @@
+@import "../../styles/variables.scss";
+@import "../../styles/functions.scss";
+@import "../../styles/mixins.scss";
+
+:host {
+  overflow: hidden;
+  width: 907px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.18);
+}
+
+.input {
+  &-container {
+    height: 96px;
+    display: flex;
+    align-items: center;
+    padding: 0 rem(32px);
+  }
+
+  &-magnifier-icon {
+    margin-right: 38px;
+    svg > * {
+      fill: $muted-gray;
+    }
+  }
+
+  &-element {
+    font-size: rem(24px);
+    font-family: Roboto;
+    font-weight: 100;
+    flex: 1;
+  }
+
+  &-close-icon {
+    svg {
+      @include size(15px);
+    }
+  }
+}
+
+.results-container {
+  box-shadow: 0 -1px 0 $muted-gray;
+  height: 0;
+  transition: all 0.5s;
+  padding: 0;
+  &.active {
+    height: 459px;
+    padding: 19px 21px 24px 40px;
+  }
+}

@@ -1,0 +1,31 @@
+@import "./variables";
+
+.result-list-item {
+  &-overlay {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, #000000);
+    width: $item-size;
+    height: $item-size;
+    transition: all 0.6s;
+    &:hover,
+    &.active {
+      background-image: linear-gradient(225deg, #de45bd, #8563ff 100%);
+      opacity: 0.8;
+    }
+  }
+
+  &-overlay:hover ~ &-content {
+    opacity: 0;
+  }
+  &-overlay.active ~ &-content {
+    opacity: 0;
+  }
+  &-overlay:hover ~ .cloud-container {
+    opacity: 1;
+  }
+  &-overlay.active ~ .cloud-container {
+    opacity: 1;
+  }
+}

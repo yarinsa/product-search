@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style-type: none;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0 auto 1em;
+  max-width: 48ch;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    // color: #2a4abf;
+    color: inherit;
+  }
+}
+input {
+  outline: none;
+  box-shadow: none;
+  border: none;
+  min-width: unset;
+}
+
+button {
+  outline: none;
+  box-shadow: none;
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    box-shadow: none;
+  }
+}

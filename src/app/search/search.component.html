@@ -1,0 +1,26 @@
+<div class="input-container">
+  <svg-icon
+    src="../../assets/search-icon.svg"
+    class="input-magnifier-icon"
+  ></svg-icon>
+  <input
+    [(ngModel)]="query"
+    class="input-element"
+    type="text"
+    placeholder="Search something"
+    (input)="onInput()"
+  />
+
+  <svg-icon
+    src="../../assets/times.svg"
+    class="search-input-close-icon"
+    (mousedown)="query = ''"
+    *ngIf="query !== ''"
+  ></svg-icon>
+</div>
+<div [class.active]="query !== ''" class="results-container">
+  <app-result-list
+    [class.active]="query !== ''"
+    [results]="results"
+  ></app-result-list>
+</div>
