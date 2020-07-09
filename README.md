@@ -1,6 +1,8 @@
-# MyApp
+# Product Search app
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.1.
+App is searching products & Categories from API endpoints and then handle the result according to the product category.
+
+The app is enriched with css animations.
 
 ## Development server
 
