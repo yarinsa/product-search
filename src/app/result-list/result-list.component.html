@@ -1,8 +1,9 @@
 <h5 class="title">Results</h5>
 <div class="result-list-container">
   <app-result-list-item
-    class="result-list-item"
-    *ngFor="let result of results"
+    *ngFor="let result of results; let i = index"
+    class="list-item"
+    [ngClass]="['result-list-item-' + i]"
     [result]="result"
   ></app-result-list-item>
 </div>

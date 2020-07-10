@@ -5,6 +5,7 @@ import { resultItem } from '../product';
   selector: 'app-result-list',
   templateUrl: './result-list.component.html',
   styleUrls: ['./result-list.component.scss'],
+  animations: [],
 })
 export class ResultListComponent implements OnInit {
   @Input() results: resultItem[];

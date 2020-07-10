@@ -10,18 +10,24 @@
 //Variables for this component
 $item-size: 150px;
 
-.result-list-item {
-  @include size($item-size);
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
-  color: white;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  // animation: fade-up 1s 1;
-
+:host {
+  .container {
+    @include size($item-size);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+    color: white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
   &-content {
+    z-index: 2;
+    padding: 12px;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+  .content {
     z-index: 2;
     padding: 12px;
     pointer-events: none;
@@ -34,8 +40,25 @@ $item-size: 150px;
     letter-spacing: 1px;
     margin-bottom: 8px;
   }
+  .title {
+    font-size: rem(16px);
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
 
   &-tag {
+    &-list {
+      display: flex;
+
+      &-item {
+        text-transform: lowercase;
+        margin-right: 8px;
+        font-size: rem(12px);
+      }
+    }
+  }
+  .tag {
     &-list {
       display: flex;
 

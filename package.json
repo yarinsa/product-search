@@ -20,7 +20,6 @@
     "@angular/platform-browser-dynamic": "~10.0.2",
     "@angular/router": "~10.0.2",
     "@types/lodash": "^4.14.157",
-    "angular-file-saver": "^1.1.3",
     "file-saver": "^2.0.2",
     "filesaver": "^0.0.13",
     "lodash": "^4.17.19",

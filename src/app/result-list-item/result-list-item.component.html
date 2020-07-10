@@ -1,9 +1,9 @@
 <div
-  class="result-list-item"
-  (click)="onClick()"
+  (mousedown)="onClick()"
+  class="container"
   [ngStyle]="makeBackground(result.imageUrl)"
 >
-  <div class="result-list-item-overlay" [class.active]="isActive"></div>
+  <div class="overlay" [class.active]="isActive"></div>
 
   <div class="cloud-container">
     <!-- Step 1: Cloud with dropping arrow -->
@@ -13,19 +13,22 @@
       [class.active]="isActive"
     ></svg-icon>
 
-    <!-- Step 2: -->
+    <!-- Step 2: Cloud with arrow mask -> animated translateY trough css -->
     <svg-icon
       class="cloud-two cloud-img"
       src="../../assets/cloud-arrow-masked.svg"
       [class.active]="isActive"
     ></svg-icon>
 
+    <!-- Step 3: Cloud with check mark masked (also) final cloud
+          -> animated with Scale trough css -->
     <svg-icon
       class="cloud-three cloud-img check-scale"
       src="../../assets/cloud-check-icon.svg"
       [class.active]="isActive"
     ></svg-icon>
 
+    <!-- Step 4: Arrow only dropping from cloud -->
     <span class="cloud arrow-only-container" [class.active]="isActive">
       <svg-icon
         class="cloud arrow-only"
@@ -35,13 +38,13 @@
     </span>
   </div>
 
-  <div class="result-list-item-content">
-    <h3 class="result-list-item-title">{{ result.title }}</h3>
+  <div class="result-list-item-content content">
+    <h3 class="result-list-item-title title">{{ result.title }}</h3>
 
-    <div class="result-list-item-tag-list">
+    <div class="result-list-item-tag-list tag-list">
       <span
         *ngFor="let tag of result.tags"
-        class="result-list-item-tag-list-item"
+        class="result-list-item-tag-list-item tag-list-item"
         >#{{ tag }}</span
       >
     </div>

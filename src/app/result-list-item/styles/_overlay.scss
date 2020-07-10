@@ -1,7 +1,7 @@
 @import "./variables";
 
-.result-list-item {
-  &-overlay {
+:host {
+  .overlay {
     position: absolute;
     right: 0;
     top: 0;
@@ -16,16 +16,16 @@
     }
   }
 
-  &-overlay:hover ~ &-content {
+  .overlay:hover ~ .content {
     opacity: 0;
   }
-  &-overlay.active ~ &-content {
+  .overlay.active ~ .content {
     opacity: 0;
   }
-  &-overlay:hover ~ .cloud-container {
+  .overlay:hover ~ .cloud-container {
     opacity: 1;
   }
-  &-overlay.active ~ .cloud-container {
+  .overlay.active ~ .cloud-container {
     opacity: 1;
   }
 }

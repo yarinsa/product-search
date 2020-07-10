@@ -39,11 +39,11 @@
   }
 }
 
-@keyframes disappear-after {
+@keyframes reveal {
   0% {
-    visibility: visible;
+    opacity: 1;
   }
   100% {
-    visibility: hidden;
+    opacity: 1;
   }
 }

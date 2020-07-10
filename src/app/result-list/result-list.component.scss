@@ -36,12 +36,12 @@ $item-size: 150px;
     flex-wrap: wrap;
     height: 328px;
     overflow: hidden;
-  }
-  &-item {
-    margin-right: 24px;
-    margin-bottom: 28px;
-    &:nth-child(5n + 5) {
-      margin-right: 0;
+    .list-item {
+      margin-right: 24px;
+      margin-bottom: 28px;
+      &:nth-child(5n + 5) {
+        margin-right: 0;
+      }
     }
   }
 }
