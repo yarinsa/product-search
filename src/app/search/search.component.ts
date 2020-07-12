@@ -41,7 +41,9 @@ export class SearchComponent implements OnInit {
   onInput() {
     if (this.query.length < 2) return;
     const getProducts = debounce(() => {
+      this.results = [];
       this.getProducts();
+      console.log(this.results);
     }, 250);
     getProducts();
   }

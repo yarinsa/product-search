@@ -2,9 +2,6 @@
 @import "../../styles/mixins.scss";
 @import "../../styles/functions.scss";
 
-//Variables for this component
-$item-size: 150px;
-
 :host {
   display: flex;
   justify-content: center;
@@ -16,6 +13,9 @@ $item-size: 150px;
 }
 :host(.active) {
   .title {
+    opacity: 1;
+  }
+  .refresh-button {
     opacity: 1;
   }
 }
@@ -48,12 +48,13 @@ $item-size: 150px;
 
 .refresh {
   &-button {
+    opacity: 0;
     border-radius: 4px;
     box-shadow: 0 2px 4px 0 rgba(28, 26, 26, 0.2);
     border: solid 1px #c0cad8;
     color: #79818f;
     padding: rem(8px);
-    background-color: #eceff3;
+    background-color: #edf0f3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,12 +62,14 @@ $item-size: 150px;
     line-height: 0;
     font-family: Roboto;
     font-weight: 500;
+    cursor: pointer;
+    transition: 0.15s all;
     &:active {
-      background-color: #edf0f3;
+      background-color: #edf0f3f1;
       box-shadow: 0 1px 3px 0 rgba(28, 26, 26, 0.2);
     }
     &:hover {
-      background-color: #edf0f3;
+      background-color: #edf0f3f1;
     }
   }
 

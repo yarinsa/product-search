@@ -1,19 +1,13 @@
-@keyframes arrow-down {
+//dropping arrow in cloud
+@keyframes arrow-down-cloud {
   0% {
-    transform: translateY(0);
+    transform: translate(0, 0);
   }
-  10% {
+  50% {
+    transform: translate(0, 25px);
   }
   100% {
-    transform: translateY(0);
-  }
-}
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+    transform: translate(0, 50px);
   }
 }
 
@@ -27,15 +21,14 @@
     opacity: 1;
   }
 }
-@keyframes arrow-down-cloud {
+
+//dropping arrow
+@keyframes arrow-down {
   0% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(0, 25px);
+    transform: translateY(0);
   }
   100% {
-    transform: translate(0, 50px);
+    transform: translateY(0);
   }
 }
 
