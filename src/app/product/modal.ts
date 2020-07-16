@@ -9,10 +9,6 @@ export interface ResultItem {
   imageUrl: string;
 }
 
-export interface AbstractProductFactory {
-  handle: (product: Product) => ResultItem;
-}
-
 /** Expected product object from server */
 export interface Product {
   id: number;

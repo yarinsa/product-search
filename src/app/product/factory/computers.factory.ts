@@ -1,4 +1,5 @@
-import { AbstractProductFactory } from '../modal';
+import { Injectable } from '@angular/core';
+import { AbstractProductFactory } from '.';
 
 /**
  * Computers category handler
@@ -6,7 +7,9 @@ import { AbstractProductFactory } from '../modal';
  * are the words combining the title.
  * @param product  - produce item from api
  */
-export class ComputerFactory implements AbstractProductFactory {
+@Injectable()
+export class ComputerFactory
+  implements AbstractProductFactory<ComputerFactory> {
   handle(product) {
     return {
       imageUrl: product.imageUrl,

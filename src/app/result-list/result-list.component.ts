@@ -7,7 +7,7 @@ import {
   style,
   animate,
 } from '@angular/animations';
-import { ResultItemInterface } from '../search/result';
+import { ResultItem } from '../product/modal';
 
 @Component({
   selector: 'app-result-list',
@@ -39,7 +39,7 @@ import { ResultItemInterface } from '../search/result';
   ],
 })
 export class ResultListComponent implements OnInit {
-  @Input() results: ResultItemInterface[];
+  @Input() results: ResultItem[];
 
   constructor() {}
 

@@ -1,9 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { debounce } from 'lodash';
-import { concat } from 'rxjs';
-import { concatMap } from 'rxjs/internal/operators';
-import { delay } from 'rxjs/internal/operators';
-import { from, of } from 'rxjs';
 import { ResultItem, Category } from '../product/modal';
 import { ProductService } from '../product/product.service';
 
