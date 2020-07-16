@@ -10,18 +10,8 @@ import { Register } from './register';
  * @param key Category name
  */
 @Injectable()
-@Register('Default')
+@Register('default')
 export class DefaultResultItemBuilder implements ProductResultItemBuilder {
-  private static instance: DefaultResultItemBuilder;
-  private constructor() {}
-
-  public static getInstance(): DefaultResultItemBuilder {
-    if (!DefaultResultItemBuilder.instance) {
-      DefaultResultItemBuilder.instance = new DefaultResultItemBuilder();
-    }
-
-    return DefaultResultItemBuilder.instance;
-  }
   handle = (product: Product): ResultItem => {
     return {
       imageUrl: product.imageUrl,

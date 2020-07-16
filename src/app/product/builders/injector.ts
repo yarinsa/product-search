@@ -10,18 +10,20 @@ export const Builder = new InjectionToken<any>('ProductBuilder', {
   factory: () => ResultItemBuilderFactory,
 });
 
+//To discuss: Find a better way of creating map before class initialization
+const initializeBuilders = () => {
+  new DefaultResultItemBuilder();
+  new ToyResultItemBuilder();
+  new ComputerResultItemBuilder();
+  new DefaultResultItemBuilder();
+};
+
+initializeBuilders();
+
 export const ResultItemBuilderFactory = (
   category: string
 ): ProductResultItemBuilder => {
-  initializeBuilders();
-  console.log(availableResultItemBuilders);
   return availableResultItemBuilders[category]
     ? availableResultItemBuilders[category]
-    : DefaultResultItemBuilder.getInstance();
-};
-
-const initializeBuilders = () => {
-  ToyResultItemBuilder.getInstance();
-  ComputerResultItemBuilder.getInstance();
-  DefaultResultItemBuilder.getInstance();
+    : availableResultItemBuilders.default;
 };

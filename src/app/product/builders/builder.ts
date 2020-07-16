@@ -1,4 +1,5 @@
 import { Product, ResultItem } from '../model';
-export abstract class ProductResultItemBuilder {
-  abstract handle(product: Product): ResultItem;
+
+export interface ProductResultItemBuilder {
+  handle: (product: Product) => ResultItem;
 }

@@ -12,17 +12,6 @@ import { Register } from './register';
 @Injectable()
 @Register('Computers')
 export class ComputerResultItemBuilder implements ProductResultItemBuilder {
-  private static instance: ComputerResultItemBuilder;
-  private constructor() {}
-
-  public static getInstance(): ComputerResultItemBuilder {
-    if (!ComputerResultItemBuilder.instance) {
-      ComputerResultItemBuilder.instance = new ComputerResultItemBuilder();
-    }
-
-    return ComputerResultItemBuilder.instance;
-  }
-
   handle = (product: Product): ResultItem => {
     return {
       imageUrl: product.imageUrl,
