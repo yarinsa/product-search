@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Category, Product, Fetcher } from './modal';
 import { Injectable } from '@angular/core';
+import { Product, Category } from './model';
+import { ProductFetcher } from './fetchers';
 
 @Injectable({
   providedIn: 'root',
 })
-export class Fetch implements Fetcher {
+export class Fetch implements ProductFetcher {
   products: Product[];
 
   private listCategoriesEndpoint = `https://pcsa57ebsj.execute-api.us-east-1.amazonaws.com/api/products/categories`;
