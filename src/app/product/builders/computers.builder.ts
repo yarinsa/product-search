@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AbstractProductFactory } from '.';
+import { ProductResultItemBuilder } from './builder';
+import { ResultItem, Product } from '../model';
 
 /**
  * Computers category handler
@@ -8,13 +9,12 @@ import { AbstractProductFactory } from '.';
  * @param product  - produce item from api
  */
 @Injectable()
-export class ComputerFactory
-  implements AbstractProductFactory<ComputerFactory> {
-  handle(product) {
+export class ComputerResultItemBuilder implements ProductResultItemBuilder {
+  handle = (product: Product): ResultItem => {
     return {
       imageUrl: product.imageUrl,
       title: product.title,
-      tags: ['computer', product.title.split(' ')],
+      tags: ['computer', ...product.title.split(' ')],
     };
-  }
+  };
 }

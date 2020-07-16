@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { debounce } from 'lodash';
-import { ResultItem, Category } from '../product/modal';
-import { ProductService } from '../product/product.service';
+import { ResultItem, ProductService } from '../product';
 
 @Component({
   selector: 'app-search',
@@ -10,7 +9,6 @@ import { ProductService } from '../product/product.service';
 })
 export class SearchComponent implements OnInit {
   query = '';
-  categories: Category[];
   results: ResultItem[] = [];
 
   constructor(private productService: ProductService) {}
@@ -20,7 +18,7 @@ export class SearchComponent implements OnInit {
   getProducts(): void {
     this.productService.getResults(this.query).subscribe(
       (products) => (this.results = products),
-      (error) => console.log(error),
+      (error) => console.error('HTTP request failed:', error),
       () => console.log('HTTP request complete')
     );
   }
@@ -30,7 +28,6 @@ export class SearchComponent implements OnInit {
     const getProducts = debounce(() => {
       this.results = [];
       this.getProducts();
-      console.log(this.results);
     }, 250);
     getProducts();
   }

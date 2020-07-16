@@ -7,7 +7,7 @@ import {
   style,
   animate,
 } from '@angular/animations';
-import { ResultItem } from '../product/modal';
+import { ResultItem } from '../product';
 
 @Component({
   selector: 'app-result-list',

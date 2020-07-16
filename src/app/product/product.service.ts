@@ -1,8 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
-import { Fetch } from './fetch';
-import { ResultItem } from './modal';
-import { FactoryInjector, AbstractProductFactory } from './factory';
+import { ResultItem } from './model';
 import { Observable } from 'rxjs';
+import { BuilderInjector, ProductResultItemBuilder } from './builders';
+import { AmazonProductFetcher } from './fetchers';
 
 @Injectable({
   providedIn: 'root',
@@ -11,12 +11,12 @@ export class ProductService {
   private results: ResultItem[] = [];
 
   constructor(
-    private fetcher: Fetch,
-    @Inject(FactoryInjector)
-    private factory: (key: string) => AbstractProductFactory<any>
+    private fetcher: AmazonProductFetcher,
+    @Inject(BuilderInjector)
+    private factory: (key: string) => ProductResultItemBuilder
   ) {}
 
-  public getResults(query: string) {
+  public getResults = (query: string) => {
     this.fetcher.getProducts(query).subscribe((products) => {
       this.results = products.map((product) => {
         return this.factory(product.categoy).handle(product);
@@ -25,8 +25,7 @@ export class ProductService {
 
     return new Observable<ResultItem[]>((subscriber) => {
       subscriber.next(this.results);
-      subscriber.error('There was problem fetching from server');
       subscriber.complete();
     });
-  }
+  };
 }
