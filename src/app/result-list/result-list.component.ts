@@ -7,7 +7,11 @@ import {
   style,
   animate,
 } from '@angular/animations';
+<<<<<<< HEAD
 import { ResultItem } from '../product';
+=======
+import { ResultItemInterface } from '../search/result';
+>>>>>>> d2d2d0feabb32ca2977b67aa11476d2cf0e81451
 
 @Component({
   selector: 'app-result-list',
@@ -39,7 +43,11 @@ import { ResultItem } from '../product';
   ],
 })
 export class ResultListComponent implements OnInit {
+<<<<<<< HEAD
   @Input() results: ResultItem[];
+=======
+  @Input() results: ResultItemInterface[];
+>>>>>>> d2d2d0feabb32ca2977b67aa11476d2cf0e81451
 
   constructor() {}
 

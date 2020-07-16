@@ -6,7 +6,11 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+<<<<<<< HEAD
 import { ResultItem } from '../product';
+=======
+import { ResultItem } from '../product/modal';
+>>>>>>> d2d2d0feabb32ca2977b67aa11476d2cf0e81451
 
 @Component({
   selector: 'app-result-list-item',
