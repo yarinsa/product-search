@@ -1,5 +1,5 @@
 <h5 class="title">Results</h5>
-<div class="result-list-container">
+<div class="result-list-container" [@stagger]="results.length">
   <app-result-list-item
     *ngFor="let result of results; let i = index"
     class="list-item"
@@ -7,7 +7,6 @@
     [result]="result"
   ></app-result-list-item>
 </div>
-
 <button class="refresh-button">
   <svg-icon class="refresh-icon" src="../../assets/refresh-icon.svg"></svg-icon>
   Refresh results

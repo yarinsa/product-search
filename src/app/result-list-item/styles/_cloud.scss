@@ -27,7 +27,6 @@
   &-two {
     opacity: 0;
     &.active {
-      opacity: 0;
       animation: reveal;
       animation-duration: 1s;
       path.arrow {
