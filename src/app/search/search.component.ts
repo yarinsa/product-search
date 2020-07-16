@@ -1,11 +1,17 @@
+<<<<<<< HEAD
+import { Component, OnInit } from '@angular/core';
+import { debounce } from 'lodash';
+import { ResultItem, ProductService } from '../product';
+=======
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Category, Product, resultItem } from '../product';
-import { ProductService } from '../product.service';
 import { debounce } from 'lodash';
 import { concat } from 'rxjs';
 import { concatMap } from 'rxjs/internal/operators';
 import { delay } from 'rxjs/internal/operators';
 import { from, of } from 'rxjs';
+import { ResultItem, Category } from '../product/modal';
+import { ProductService } from '../product/product.service';
+>>>>>>> d2d2d0feabb32ca2977b67aa11476d2cf0e81451
 
 @Component({
   selector: 'app-search',
@@ -14,28 +20,26 @@ import { from, of } from 'rxjs';
 })
 export class SearchComponent implements OnInit {
   query = '';
+<<<<<<< HEAD
+=======
   categories: Category[];
-  results: resultItem[] = [];
+>>>>>>> d2d2d0feabb32ca2977b67aa11476d2cf0e81451
+  results: ResultItem[] = [];
 
   constructor(private productService: ProductService) {}
 
-  ngOnInit(): void {
-    this.getCategories();
-  }
-
-  getCategories(): void {
-    this.productService
-      .getCategories()
-      .subscribe((categories) => (this.categories = categories));
-  }
+  ngOnInit(): void {}
 
   getProducts(): void {
-    this.productService
-      .getProducts(this.query)
-      .subscribe(
-        (products) =>
-          (this.results = products.map((product) => this.handle(product)))
-      );
+    this.productService.getResults(this.query).subscribe(
+      (products) => (this.results = products),
+<<<<<<< HEAD
+      (error) => console.error('HTTP request failed:', error),
+=======
+      (error) => console.log(error),
+>>>>>>> d2d2d0feabb32ca2977b67aa11476d2cf0e81451
+      () => console.log('HTTP request complete')
+    );
   }
 
   onInput() {
@@ -46,63 +50,5 @@ export class SearchComponent implements OnInit {
       console.log(this.results);
     }, 250);
     getProducts();
-  }
-
-  /**
-   * Handle function to convert
-   * product item to search result item.
-   * Handles each product according to his category
-   * @param product
-   */
-  handle(product: Product): resultItem {
-    let categoriesMap = new Map();
-    categoriesMap.set('Toys', this._handleToy);
-    categoriesMap.set('Computers', this._handleComputers);
-    return categoriesMap.has(product.categoy)
-      ? categoriesMap.get(product.categoy)(product)
-      : this._handleAll(product);
-  }
-
-  /**
-   * Default handler - handle all product categories
-   * return result item when the tags are the letters
-   * combining the title reversed.
-   * @param product  - Product item from api
-   */
-  _handleAll(product: Product): resultItem {
-    return {
-      imageUrl: product.imageUrl,
-      title: product.title,
-      tags: product.title.split('').reverse(),
-    };
-  }
-
-  /**
-   * Computers category handler
-   * return result item when the tags
-   * are the words combining the title.
-   * @param product  - produce item from api
-   */
-  _handleComputers(product: Product): resultItem {
-    return {
-      imageUrl: product.imageUrl,
-      title: product.title,
-      tags: product.title.split(' '),
-    };
-  }
-
-  /**
-   * Toys category handler
-   * return result item when the tags are the price
-   * @param product - produce item from api
-   */
-  _handleToy(product: Product): resultItem {
-    let tags = [];
-    tags.push(product.price);
-    return {
-      imageUrl: product.imageUrl,
-      title: product.title,
-      tags: tags,
-    };
   }
 }
