@@ -1,3 +1,3 @@
 export { ProductResultItemBuilder } from './builder';
 
-export { BuilderInjector } from './injector';
+export { Builder as BuilderInjector } from './injector';

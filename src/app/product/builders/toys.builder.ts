@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ProductResultItemBuilder } from './builder';
 import { Product, ResultItem } from '../model';
+import { Register } from './register';
 
 /**
  * Toys category handler
@@ -8,7 +9,19 @@ import { Product, ResultItem } from '../model';
  * @param product - produce item from api
  */
 @Injectable()
+@Register('Toys')
 export class ToyResultItemBuilder implements ProductResultItemBuilder {
+  private static instance: ToyResultItemBuilder;
+  private constructor() {}
+
+  public static getInstance(): ToyResultItemBuilder {
+    if (!ToyResultItemBuilder.instance) {
+      ToyResultItemBuilder.instance = new ToyResultItemBuilder();
+    }
+
+    return ToyResultItemBuilder.instance;
+  }
+
   handle = (product: Product): ResultItem => {
     return {
       imageUrl: product.imageUrl,

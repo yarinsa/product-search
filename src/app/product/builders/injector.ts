@@ -3,8 +3,9 @@ import { ToyResultItemBuilder } from './toys.builder';
 import { DefaultResultItemBuilder } from './default.builder';
 import { ProductResultItemBuilder } from './builder';
 import { InjectionToken } from '@angular/core';
+import { availableResultItemBuilders } from './register';
 
-export const BuilderInjector = new InjectionToken<any>('ProductBuilder', {
+export const Builder = new InjectionToken<any>('ProductBuilder', {
   providedIn: 'root',
   factory: () => ResultItemBuilderFactory,
 });
@@ -12,12 +13,15 @@ export const BuilderInjector = new InjectionToken<any>('ProductBuilder', {
 export const ResultItemBuilderFactory = (
   category: string
 ): ProductResultItemBuilder => {
+  initializeBuilders();
+  console.log(availableResultItemBuilders);
   return availableResultItemBuilders[category]
     ? availableResultItemBuilders[category]
-    : new DefaultResultItemBuilder();
+    : DefaultResultItemBuilder.getInstance();
 };
 
-const availableResultItemBuilders: Record<string, ProductResultItemBuilder> = {
-  Computers: new ComputerResultItemBuilder(),
-  Toys: new ToyResultItemBuilder(),
+const initializeBuilders = () => {
+  ToyResultItemBuilder.getInstance();
+  ComputerResultItemBuilder.getInstance();
+  DefaultResultItemBuilder.getInstance();
 };
