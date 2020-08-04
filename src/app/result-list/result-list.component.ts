@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
-import { resultItem } from '../product';
 import {
   trigger,
   transition,
@@ -8,6 +7,7 @@ import {
   style,
   animate,
 } from '@angular/animations';
+import { ResultItem } from '../services/product';
 
 @Component({
   selector: 'app-result-list',
@@ -39,7 +39,7 @@ import {
   ],
 })
 export class ResultListComponent implements OnInit {
-  @Input() results: resultItem[];
+  @Input() results: ResultItem[];
 
   constructor() {}
 
@@ -53,61 +53,3 @@ export class ResultListComponent implements OnInit {
     changes.results.currentValue.map((result) => this.results.push(result));
   }
 }
-
-const results = [
-  {
-    imageUrl: 'https://picsum.photos/400?image=59',
-    title: 'Ergonomic Granite Pizza',
-    tags: Array(23),
-  },
-  {
-    imageUrl: 'https://picsum.photos/400?image=188',
-    title: 'Rustic Rubber Pizza',
-    tags: Array(19),
-  },
-  {
-    imageUrl: 'https://picsum.photos/400?image=365',
-    title: 'Awesome Concrete Pizza',
-    tags: Array(1),
-  },
-  {
-    imageUrl: 'https://picsum.photos/400?image=178',
-    title: 'Handmade Cotton Pizza',
-    tags: Array(21),
-  },
-  {
-    imageUrl: 'https://picsum.photos/400?image=967',
-    title: 'Handmade Fresh Pizza',
-    tags: Array(20),
-  },
-  {
-    imageUrl: 'https://picsum.photos/400?image=729',
-    title: 'Rustic Frozen Pizza',
-    tags: Array(3),
-  },
-  {
-    imageUrl: 'https://picsum.photos/400?image=30',
-    title: 'Rustic Soft Pizza',
-    tags: Array(17),
-  },
-  {
-    imageUrl: 'https://picsum.photos/400?image=278',
-    title: 'Refined Frozen Pizza',
-    tags: Array(20),
-  },
-  {
-    imageUrl: 'https://picsum.photos/400?image=418',
-    title: 'Gorgeous Steel Pizza',
-    tags: Array(20),
-  },
-  {
-    imageUrl: 'https://picsum.photos/400?image=733',
-    title: 'Gorgeous Fresh Pizza',
-    tags: Array(20),
-  },
-  {
-    imageUrl: 'https://picsum.photos/400?image=787',
-    title: 'Handmade Frozen Pizza',
-    tags: Array(21),
-  },
-];

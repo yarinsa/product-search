@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Product, Category, resultItem } from '../product';
 import {
   trigger,
   state,
@@ -7,6 +6,7 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { ResultItem } from '../services/product';
 
 @Component({
   selector: 'app-result-list-item',
@@ -28,7 +28,7 @@ import {
 })
 export class ResultListItemComponent implements OnInit {
   isActive = false;
-  @Input() result: resultItem;
+  @Input() result: ResultItem;
 
   constructor() {}
 
