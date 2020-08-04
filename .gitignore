@@ -45,6 +45,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-#unrelevent 
-/src/app/product
-/src/**/*.js
+#JS files 
+/**/*.js

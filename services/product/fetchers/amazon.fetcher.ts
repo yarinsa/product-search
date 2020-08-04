@@ -21,6 +21,7 @@ export class AmazonProductFetcher implements ProductFetcher {
     });
   };
 
+  //TODO: Refactor to HTTP service
   makeRequest = async (query: string) => {
     return new Promise<any>((resolve, reject) => {
       const request = net
