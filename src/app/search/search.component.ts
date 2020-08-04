@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { debounce } from 'lodash';
-import { ResultItem, ProductService } from '../product';
+import { ResultItem, ProductService } from '../services/product';
 
 @Component({
   selector: 'app-search',
@@ -11,23 +11,27 @@ export class SearchComponent implements OnInit {
   query = '';
   results: ResultItem[] = [];
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cdr.detectChanges();
+  }
 
   getProducts(): void {
-    this.productService.getResults(this.query).subscribe(
-      (products) => (this.results = products),
-      (error) => console.error('HTTP request failed:', error),
-      () => console.log('HTTP request complete')
-    );
+    this.productService.results.subscribe((products) => {
+      this.results = products;
+    });
   }
 
   onInput() {
     if (this.query.length < 2) return;
-    const getProducts = debounce(() => {
+    const onSearch = debounce(() => {
+      this.productService.emitSearch(this.query);
       this.getProducts();
     }, 250);
-    getProducts();
+    onSearch();
   }
 }

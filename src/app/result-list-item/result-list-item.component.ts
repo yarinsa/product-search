@@ -6,7 +6,7 @@ import {
   animate,
   transition,
 } from '@angular/animations';
-import { ResultItem } from '../product';
+import { ResultItem } from '../services/product';
 
 @Component({
   selector: 'app-result-list-item',

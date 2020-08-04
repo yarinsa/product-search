@@ -1,4 +1,4 @@
-# Product Search app
+# Product Search app using Electron
 
 App is searching products & Categories from API endpoints and then handle the result according to the product category.
 
@@ -6,7 +6,9 @@ The app is enriched with css animations.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` and then `electron` for a dev server.
+
+For automatic reload if you change any of the source files run `electron:watch`
 
 ## Code scaffolding
 
