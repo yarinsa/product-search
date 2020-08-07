@@ -1,5 +1,5 @@
 import { app, BrowserWindow, screen, net, ipcMain } from 'electron';
-import { ProductService } from './services/product';
+import { ProductService } from './electron/services/product';
 
 const path = require('path');
 const url = require('url');

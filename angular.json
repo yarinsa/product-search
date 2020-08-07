@@ -25,12 +25,7 @@
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
-            "scripts": [
-              {
-                "input": "index.js",
-                "inject": false
-              }
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {

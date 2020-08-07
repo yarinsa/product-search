@@ -35,30 +35,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
-exports.AmazonProductFetcher = void 0;
-var rxjs_1 = require("rxjs");
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.HttpService = void 0;
 var electron_1 = require("electron");
-var AmazonProductFetcher = /** @class */ (function () {
-    function AmazonProductFetcher() {
+var HttpService = /** @class */ (function () {
+    function HttpService() {
         var _this = this;
-        this.getProducts = function (query) {
-            return new rxjs_1.Observable(function (subscribe) {
-                _this.makeRequest(query)
-                    .then(function (results) {
-                    subscribe.next(results);
-                })["catch"](function (error) { return subscribe.error(error); })["finally"](function () { return subscribe.complete(); });
-            });
-        };
-        this.makeRequest = function (query) { return __awaiter(_this, void 0, void 0, function () {
+        this.fetch = function (url) { return __awaiter(_this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2 /*return*/, new Promise(function (resolve, reject) {
                         var request = electron_1.net
-                            .request("https://pcsa57ebsj.execute-api.us-east-1.amazonaws.com/api/products/search?query=" + query)
+                            .request(url)
                             .on('response', function (response) {
                             response.on('data', function (chunk) {
-                                var result = JSON.parse(chunk.toString());
-                                resolve(result);
+                                resolve(JSON.parse(chunk.toString()));
                             });
                         })
                             .on('error', function (error) {
@@ -69,6 +59,7 @@ var AmazonProductFetcher = /** @class */ (function () {
             });
         }); };
     }
-    return AmazonProductFetcher;
+    return HttpService;
 }());
-exports.AmazonProductFetcher = AmazonProductFetcher;
+exports.HttpService = HttpService;
+//# sourceMappingURL=http.service.js.map
