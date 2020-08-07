@@ -1,37 +1,27 @@
 import { Injectable } from '@angular/core';
 import { ResultItem } from '../product/model';
 import { BehaviorSubject } from 'rxjs';
-import { IpcRenderer } from 'electron';
-
-const electron = (<any>window).require('electron');
+import { ElectronService } from 'ngx-electron';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
   results = new BehaviorSubject<ResultItem[]>([]);
-  private ipc: IpcRenderer;
 
-  constructor() {
-    electron.ipcRenderer.on('search-products-reply', (event, results) => {
-      this.results.next(results);
-    });
-    if ((<any>window).require) {
-      try {
-        this.ipc = (<any>window).require('electron').ipcRenderer;
-      } catch (e) {
-        throw e;
-      }
-    } else {
-      console.warn('App not running inside Electron!');
-    }
-  }
+  constructor(private _electronService: ElectronService) {}
 
   get results$() {
     return this.results;
   }
 
   public emitSearch = (query: string) => {
-    this.ipc.send('search-products', [query]);
+    return this._electronService.isElectronApp
+      ? this._electronService.ipcRenderer
+          .invoke('search-products', query)
+          .then((results) => {
+            this.results.next(results);
+          })
+      : null;
   };
 }

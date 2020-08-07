@@ -21,7 +21,7 @@ export class SearchComponent implements OnInit {
   }
 
   getProducts(): void {
-    this.productService.results.subscribe((products) => {
+    this.productService.results$.subscribe((products) => {
       this.results = products;
     });
   }

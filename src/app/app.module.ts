@@ -8,6 +8,7 @@ import { SearchComponent } from './search/search.component';
 import { ResultListComponent } from './result-list/result-list.component';
 import { ResultListItemComponent } from './result-list-item/result-list-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxElectronModule } from 'ngx-electron';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     BrowserAnimationsModule,
     AngularSvgIconModule.forRoot(),
+    NgxElectronModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
