@@ -29,7 +29,7 @@
     "build": "^0.1.4",
     "electron": "^9.1.2",
     "global": "^4.4.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "ng": "^0.0.0",
     "ngx-electron": "^2.2.0",
     "nodemon": "^2.0.4",
